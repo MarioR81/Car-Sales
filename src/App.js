@@ -1,9 +1,11 @@
 import React from 'react';
-
+// import {Provider} from 'reacr-redux';
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+import { createStore } from 'redux';
+import {Reducer} from './components/Reducer';
 
 const App = () => {
   const state = {
@@ -22,6 +24,9 @@ const App = () => {
       { id: 4, name: 'Rear spoiler', price: 250 }
     ]
   };
+
+  const store = createStore (Reducer);
+  console.log(store)
 
   const removeFeature = item => {
     // dispatch an action here to remove an item
