@@ -4,8 +4,7 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
-import { createStore } from 'redux';
-import {Reducer} from './components/Reducer';
+
 
 const App = () => {
   const state = {
@@ -21,12 +20,12 @@ const App = () => {
       { id: 1, name: 'V-6 engine', price: 1500 },
       { id: 2, name: 'Racing detail package', price: 1500 },
       { id: 3, name: 'Premium sound system', price: 500 },
-      { id: 4, name: 'Rear spoiler', price: 250 }
+      { id: 4, name: 'Rear spoiler', price: 250 },
+      { id: 5, name: 'NOS System', price: 2250 }
     ]
   };
 
-  const store = createStore (Reducer);
-  console.log(store)
+ 
 
   const removeFeature = item => {
     // dispatch an action here to remove an item
@@ -39,7 +38,7 @@ const App = () => {
   return (
     <div className="boxes">
       <div className="box">
-        <Header car={state.car} />
+        <Header/>
         <AddedFeatures car={state.car} />
       </div>
       <div className="box">
