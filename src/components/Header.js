@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 
 const Header = props => {
-  console.log(props);
+  // console.log(props);
   return (
     <>
       <figure className="image is-128x128">
