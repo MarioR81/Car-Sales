@@ -1,4 +1,4 @@
-export const initialState = {
+const initialState = {
     additionalPrice: 0,
     car: {
       price: 26395,
@@ -17,7 +17,30 @@ export const initialState = {
 };
 
 export const Reducer = (state = initialState, action) => {
+  console.log('inside action', action)
     switch(action.type) {
+      case 'ADD':
+        if (state.car.features.find(i => i.id === action.payload.id)){
+          return state
+        } 
+
+        return {
+          ...state,
+          additionalPrice: state.additionalPrice + action.payload.price,
+          car: {
+            ...state.car,
+            features: [...state.car.features, action.payload]
+          }
+        };
+        case "REMOVE":
+          return {
+            ...state,
+            additionalPrice: state.additionalPrice - action.payload.price,
+            car: {
+              ...state.car,
+              features: state.car.features.filter(i => i.id !== action.payload.id)
+            }
+          }
         default:
             return state;
     }
