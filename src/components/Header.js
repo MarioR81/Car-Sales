@@ -1,6 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+
 
 const Header = props => {
+  // console.log(props);
   return (
     <>
       <figure className="image is-128x128">
@@ -12,4 +16,8 @@ const Header = props => {
   );
 };
 
-export default Header;
+function mapStateToProps(state){
+  const {car} = state;
+  return state
+};
+export default connect(mapStateToProps, {})(Header);
